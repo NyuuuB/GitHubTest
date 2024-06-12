@@ -7,7 +7,7 @@ public class Character : MonoBehaviour
 {
     public bool Move(Vector3 direaction)
     {
-
+        Debug.Log("test");
         return default;
     }
 }
