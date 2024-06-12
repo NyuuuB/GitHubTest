@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-
-
     public bool Move(Vector3 direaction)
     {
 
