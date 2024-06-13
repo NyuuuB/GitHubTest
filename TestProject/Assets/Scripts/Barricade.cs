@@ -41,6 +41,7 @@ public class Barricade : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        
         // 닿은 녀석이. 캐릭터라면
         if(other.TryGetComponent<Character>(out Character col))
         {
@@ -48,7 +49,7 @@ public class Barricade : MonoBehaviour
             col.TakeDamage();
         }
         // 닿은 녀석이 총알이라면
-        else if(TryGetComponent<Bullet>(out Bullet bullet))
+        else if(other.TryGetComponent<Bullet>(out Bullet bullet))
         {
             // 총알 공격력 만큼 데미지를 받음.
             hpCurrent -= bullet.AttackValue;
