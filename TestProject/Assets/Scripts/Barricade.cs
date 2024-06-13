@@ -6,10 +6,13 @@ using UnityEngine;
 
 public class Barricade : MonoBehaviour
 {
+    [SerializeField] GameObject rewardObject;
+    [SerializeField] GameObject barricadeObject;
     public int hpMax;
     public int hpCurrent;
 
     public RewardType type;
+
     public int value;
 
     public float speed;
@@ -27,9 +30,23 @@ public class Barricade : MonoBehaviour
         }
         else
         {
-            
+            hpCurrent -= 1;
+            if(hpCurrent<0)
+            {
+                OnDestroyBarricade();
+            }
         }
 
+
+    }
+
+    void OnDestroyBarricade()
+    {
+        rewardObject.SetActive(true);
+        if(TryGetComponent<Character>(out Character reward))
+        {
+            
+        }
 
     }
 
