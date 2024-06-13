@@ -27,7 +27,7 @@ public class Bullet : MonoBehaviour
     {
         switch (other.tag)
         {
-            
+            // 리워드 쳐내려다가 끝.
         }
         Destroy(gameObject);
     }

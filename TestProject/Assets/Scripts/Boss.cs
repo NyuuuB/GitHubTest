@@ -6,7 +6,7 @@ public class Boss : Character
 {
     public override void Attack()
     {
-        base.Attack();
+
     }
 
     void Update()

@@ -8,7 +8,8 @@ using UnityEngine;
 
 public class Barricade : MonoBehaviour
 {
-    [SerializeField] GameObject rewardObject;
+   
+    [SerializeField] GameObject rewardObject; 
     [SerializeField] GameObject barricadeObject;
     [SerializeField] TextMeshProUGUI hpText;
     public int hpMax;

@@ -6,7 +6,8 @@ using UnityEngine.InputSystem;
 
 public class Character : MonoBehaviour
 {
-    public GameObject bulletPrefab;
+
+    public GameObject bulletPrefab; 
 
     public int hpMax;
     public int hpCurrent;
@@ -21,8 +22,9 @@ public class Character : MonoBehaviour
         }
     }
 
-    public float attackSpeedMax;
+    public float attackSpeedMax; // 공격 딜레이 숫자가 작아지면 빨라진다.
     public float attackSpeedCurrent;
+
     public float moveSpeed;
     public Vector3 dir;
 
@@ -30,7 +32,6 @@ public class Character : MonoBehaviour
     {
         GameObject inst = Instantiate(bulletPrefab, transform.position + Vector3.forward, transform.rotation);
         inst.GetComponent<Bullet>().SetAttackValue(attackValue);
-
     }
     public virtual void OnMove(InputValue value)
     {
@@ -43,6 +44,7 @@ public class Character : MonoBehaviour
 
     private void Update()
     {
+        // 공격
         if (attackSpeedCurrent <= 0f)
         {
             Attack();
@@ -53,6 +55,7 @@ public class Character : MonoBehaviour
             attackSpeedCurrent -= Time.deltaTime;
         }
 
+        // 이동
         transform.position += dir * Time.deltaTime * moveSpeed;
     }
 
