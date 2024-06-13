@@ -363,13 +363,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a2c7f24b94f70b4dbbaee344a174128, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpMax: 0
-  hpCurrent: 0
+  bulletPrefab: {fileID: 8859767318548659080, guid: 6fe5741668e8da543ae85fcd02eb4305, type: 3}
+  hpMax: 3
+  hpCurrent: 3
   attackValue: 0
-  attackSpeed: 0
-  moveSpeed: 0
+  attackSpeedMax: 0.5
+  attackSpeedCurrent: 0
+  moveSpeed: 20
   dir: {x: 0, y: 0, z: 0}
-  rb: {fileID: 913786973}
 --- !u!114 &913786975
 MonoBehaviour:
   m_ObjectHideFlags: 0

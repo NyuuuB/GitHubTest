@@ -6,10 +6,11 @@ using UnityEngine.InputSystem;
 
 public class Character : MonoBehaviour
 {
+    public GameObject bulletPrefab;
 
     public int hpMax;
     public int hpCurrent;
-
+    
     public int attackValue;
     public int AttackValue
     {
@@ -20,17 +21,17 @@ public class Character : MonoBehaviour
         }
     }
 
-    public float attackSpeed;
+    public float attackSpeedMax;
+    public float attackSpeedCurrent;
     public float moveSpeed;
     public Vector3 dir;
 
-    public Rigidbody rb;
-
     public virtual void Attack()
     {
-        
+        Instantiate(bulletPrefab, transform.position + Vector3.forward, transform.rotation);
+
     }
-    public void OnMove(InputValue value)
+    public virtual void OnMove(InputValue value)
     {
         Move(value.Get<Vector3>());
     }
@@ -38,12 +39,30 @@ public class Character : MonoBehaviour
     {
         this.dir = dir.normalized;
     }
+
     private void Update()
     {
-        rb.AddForce(moveSpeed * Time.deltaTime * dir);        
+        if (attackSpeedCurrent <= 0f)
+        {
+            Attack();
+            attackSpeedCurrent = attackSpeedMax;
+        }
+        else
+        {
+            attackSpeedCurrent -= Time.deltaTime;
+        }
+
+        transform.position += dir * Time.deltaTime * moveSpeed;
     }
 
-
+    public void TakeDamage()
+    {
+        hpCurrent -= 1;
+        if (hpCurrent <= 0)
+        {
+            Debug.Log("게임오버");
+        }
+    }
 
     
 }
