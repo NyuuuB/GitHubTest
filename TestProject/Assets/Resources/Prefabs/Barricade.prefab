@@ -149,8 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4bfab8fc9e559c489c8f8122278d6f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rewardObject: {fileID: 6857434741500465208}
-  barricadeObject: {fileID: 4925689610290438967}
+  rewardObject: {fileID: 4925689610290438967}
+  barricadeObject: {fileID: 6857434741500465208}
   hpText: {fileID: 1954021645261804030}
   hpMax: 20
   hpCurrent: 20
