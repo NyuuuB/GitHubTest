@@ -28,7 +28,8 @@ public class Character : MonoBehaviour
 
     public virtual void Attack()
     {
-        Instantiate(bulletPrefab, transform.position + Vector3.forward, transform.rotation);
+        GameObject inst = Instantiate(bulletPrefab, transform.position + Vector3.forward, transform.rotation);
+        inst.GetComponent<Bullet>().SetAttackValue(attackValue);
 
     }
     public virtual void OnMove(InputValue value)
@@ -55,7 +56,7 @@ public class Character : MonoBehaviour
         transform.position += dir * Time.deltaTime * moveSpeed;
     }
 
-    public void TakeDamage()
+    public virtual void TakeDamage()
     {
         hpCurrent -= 1;
         if (hpCurrent <= 0)
@@ -63,6 +64,4 @@ public class Character : MonoBehaviour
             Debug.Log("게임오버");
         }
     }
-
-    
 }

@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 913786975}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -366,10 +366,10 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8859767318548659080, guid: 6fe5741668e8da543ae85fcd02eb4305, type: 3}
   hpMax: 3
   hpCurrent: 3
-  attackValue: 0
+  attackValue: 1
   attackSpeedMax: 0.5
   attackSpeedCurrent: 0
-  moveSpeed: 20
+  moveSpeed: 5
   dir: {x: 0, y: 0, z: 0}
 --- !u!114 &913786975
 MonoBehaviour:
