@@ -25,6 +25,10 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        switch (other.tag)
+        {
+            
+        }
         Destroy(gameObject);
     }
 
