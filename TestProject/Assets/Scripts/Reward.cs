@@ -43,6 +43,7 @@ public class Reward : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             ApplyAttackValue(other.GetComponent<Character>());
+            Destroy(gameObject);
         }
     }
 
