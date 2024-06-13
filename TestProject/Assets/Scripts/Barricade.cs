@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -18,12 +19,18 @@ public class Barricade : MonoBehaviour
 
     public float speed;
 
-    private void Start()
+    private void Awake()
     {
+        if (rewardObject.TryGetComponent<Reward>(out Reward reward))
+        {
+            reward.type = this.type;
+            reward.value = this.value;
+        }
         // 시작하면 보상은 끄고, 바리케이드는 킴.
         rewardObject.SetActive(false);
         barricadeObject.SetActive(true);
         hpText.text = hpCurrent.ToString();
+
     }
 
     private void Update()
@@ -46,6 +53,7 @@ public class Barricade : MonoBehaviour
             // 총알 공격력 만큼 데미지를 받음.
             hpCurrent -= bullet.AttackValue;
             hpText.text = hpCurrent.ToString();
+            
             //바리케이드 hp가 0이하가 되면 보상이 나옴
             if(hpCurrent<=0)
             {
@@ -63,11 +71,7 @@ public class Barricade : MonoBehaviour
         rewardObject.SetActive(true);
         barricadeObject.SetActive(false);
         // 보상의 타입, 밸류를 정해줌.
-        if(rewardObject.TryGetComponent<Reward>(out Reward reward))
-        {
-            reward.type = this.type;
-            reward.value = this.value;
-        }
+        
     }
 
 }
