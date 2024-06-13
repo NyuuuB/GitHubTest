@@ -1,18 +1,36 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Barricade : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int hpMax;
+    public int hpCurrent;
+
+    public RewardType type;
+    public int value;
+
+    public float speed;
+
+    private void Update()
     {
-        
+        transform.position += Vector3.back * Time.deltaTime * speed;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if(other.TryGetComponent<Character>(out Character col))
+        {
+
+        }
+        else
+        {
+            
+        }
+
+
     }
+
 }
