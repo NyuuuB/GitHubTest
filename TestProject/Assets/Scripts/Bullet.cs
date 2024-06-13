@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
+
+    public float speed;
+    public int AttackValue;
 
     // Update is called once per frame
     void Update()
+    {
+        transform.position += speed * Time.deltaTime * Vector3.forward;
+    }
+
+    private void OnTriggerEnter(Collider other)
     {
         
     }
