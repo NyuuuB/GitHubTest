@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 
@@ -8,6 +9,7 @@ public class Barricade : MonoBehaviour
 {
     [SerializeField] GameObject rewardObject;
     [SerializeField] GameObject barricadeObject;
+    [SerializeField] TextMeshProUGUI hpText;
     public int hpMax;
     public int hpCurrent;
 
@@ -21,6 +23,7 @@ public class Barricade : MonoBehaviour
         // 시작하면 보상은 끄고, 바리케이드는 킴.
         rewardObject.SetActive(false);
         barricadeObject.SetActive(true);
+        hpText.text = hpCurrent.ToString();
     }
 
     private void Update()
@@ -35,12 +38,14 @@ public class Barricade : MonoBehaviour
         if(other.TryGetComponent<Character>(out Character col))
         {
             // 데미지를 받음.
+            col.TakeDamage();
         }
         // 닿은 녀석이 총알이라면
         else if(TryGetComponent<Bullet>(out Bullet bullet))
         {
             // 총알 공격력 만큼 데미지를 받음.
-            hpCurrent -= 1;
+            hpCurrent -= bullet.AttackValue;
+            hpText.text = hpCurrent.ToString();
             //바리케이드 hp가 0이하가 되면 보상이 나옴
             if(hpCurrent<=0)
             {
